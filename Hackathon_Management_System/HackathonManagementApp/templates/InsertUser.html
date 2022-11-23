@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body  {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #020121;
+            height: 500px;
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            position: relative;
+        }
+    </style>
+    <title> Cycling Stats </title>
+</head>
+<left>
+    <a href="{% url 'Hackathon_Detail' %}">
+        <button>Database Details</button>
+    </a>
+</left>
+<body>
+
+
+    <center>
+        <h1 style="color:white;"> Insert User </h1>
+        <hr/>
+
+        
+        <form method="POST" action="InsertUser">
+            {% csrf_token %}
+        <table border="1" bgcolor="lightblue">
+            <tr>
+                <td> User ID </td>
+                <td><input type="text" placeholder="Enter User ID" name="user_id"></td>
+            </tr>
+            <tr>
+                <td> E-mail </td>
+                <td><input type="email" placeholder="Enter E-mail" name="email_id"></td>
+            </tr>
+            <tr>
+                <td> User name </td>
+                <td>
+                    <input type="text" placeholder="Enter User name" name="name"></td>
+                </td>
+            </tr>
+            <tr>
+                <td> password </td>
+                <td><input type="password" placeholder="Enter password" name="password"></td>
+            </tr>
+            <tr>
+                <td> DOB </td>
+                <td><input type="date" placeholder="Enter Date of birth" name="dob"></td>
+            </tr>
+            <tr>
+                <td> Age </td>
+                <td><input type="text" placeholder="Enter age " name="age"></td>
+            </tr>
+            <tr>
+                <td> Mobile number </td>
+                <td><input type="text" placeholder="Enter mobile number " name="mobile"></td>
+            </tr>
+
+            <tr>
+                <td> <input type="submit" value="Insert"> </td>
+                <td>
+                    {% if messages %}
+                    {% for mess in messages %}
+                    <b style="color: Green;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        </form>
+    </br>
+    </br>
+    <a href="{% url 'Hackathon_Detail' %}">
+        <input class = "btn btn-primary mb-5" type="submit" value="Go Back">
+    </a>
+    </center>
+    
+</body>
+</html>

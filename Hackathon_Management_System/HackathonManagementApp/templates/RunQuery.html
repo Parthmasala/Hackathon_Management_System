@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>  
+        body  {  
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #020121;
+            height: 500px;
+            background-position: center;
+            background-repeat: repeat;
+            background-size: cover;
+            position: relative;
+        }  
+        td {
+            text-align: center;
+        }
+    </style>  
+    <title> Hackathon Management App </title>
+</head>
+<body>
+    <left>
+        <a href="{% url 'index' %}">
+            <button>HomePage</button>
+        </a>
+    </left>
+
+    <center>
+        <h1 style="color:white;"> Show User Details </h1>
+        </hr>
+        </hr>
+        <table border="1" bgcolor="lightblue">
+            <tr>
+                {% for col in colnames%}
+                    <th>{{col}}</th>
+                {% endfor %}
+            </tr>
+            {% for result in data %}
+                <tr>
+                    {% for nc in result %}
+                        <td>{{nc}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </br>
+    </br>
+        
+            <a href="{% url 'showRunQuery' %}">
+                <button>Run Query Again</button>
+            </a>
+    
+    </center>
+</body>
+</html>
